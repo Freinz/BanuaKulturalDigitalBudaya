@@ -12,7 +12,31 @@
     />
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
-  <body>
+  <body class="is-preload">
+    <script>
+      (function () {
+        try {
+          const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (prefersReduce) {
+            document.body.classList.remove('is-preload');
+            document.body.classList.add('is-loaded');
+            return;
+          }
+
+          // Ensure visual change happens after initial paint
+          document.addEventListener('DOMContentLoaded', function () {
+            requestAnimationFrame(function () {
+              document.body.classList.remove('is-preload');
+              document.body.classList.add('is-loaded');
+            });
+          });
+        } catch (e) {
+          // fallback: ensure page is visible
+          document.body.classList.remove('is-preload');
+          document.body.classList.add('is-loaded');
+        }
+      })();
+    </script>
     <!-- Header -->
     <header class="header">
       <div class="container header-content">

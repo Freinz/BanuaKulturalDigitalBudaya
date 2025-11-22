@@ -30,6 +30,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Page entrance: gentle fade-in to avoid instant "plek" appearance */
+body.is-preload {
+  opacity: 0;
+}
+
+body.is-loaded {
+  opacity: 1;
+  transition: opacity 420ms cubic-bezier(.2,.8,.2,1);
+  will-change: opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.is-preload,
+  body.is-loaded {
+    transition: none !important;
+    opacity: 1 !important;
+  }
+}
+
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
