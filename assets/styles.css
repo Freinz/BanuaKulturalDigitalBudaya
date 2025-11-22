@@ -5,10 +5,14 @@
   --mustard: #D4A516;
   --cream-bg: #F5F0E8;
   --dark-gray: #4a4a4a;
+  --text-dark: #2C1810;
+  --text-light: #6B6B6B;
+  --footer-bg: #2C1810;
 }
 
 *{box-sizing:border-box}
 body{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:var(--dark-gray); background:white}
+.site-header{color:var(--text-dark)}
 .container{max-width:1100px; margin:0 auto; padding:0 20px}
 
 /* Header / Navbar */
@@ -17,6 +21,7 @@ body{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
 .logo{font-family: 'Playfair Display', serif; font-style:italic; color:var(--logo-brown); font-size:1.25rem}
 .main-nav a{margin-left:24px; text-decoration:none; color: #5b3b2b; font-weight:500}
 .main-nav a:first-child{margin-left:0}
+.main-nav a:hover{color:var(--title-brown)}
 
 /* Hero */
 .hero{background:var(--cream-bg);}
@@ -29,8 +34,38 @@ body{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
 .btn-primary{background:var(--terracotta); color:#fff}
 .btn-secondary{background:#fff; color:var(--logo-brown); border:2px solid var(--logo-brown)}
 
-/* Footer */
-.site-footer{padding:28px 0; text-align:center; color:#6b5a52}
+/* Global link style */
+a{color:var(--title-brown)}
+a:hover{color:var(--terracotta)}
+
+.site-footer{background:var(--footer-bg); color:#fff; text-align:center}
+
+/* Footer styles */
+.footer-top{padding:56px 0; color:inherit}
+.footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:32px; align-items:start}
+.footer-brand .footer-logo{font-family:'Playfair Display', serif; font-style:italic; color:#fff; font-size:1.5rem; font-weight:700}
+.footer-tag{color:rgba(255,255,255,0.9); max-width:420px; margin-top:12px; line-height:1.7}
+.footer-links, .footer-contact{display:flex; flex-direction:column; justify-content:center}
+.footer-links h4,.footer-contact h4{color:#fff; margin:0 0 12px; font-weight:700}
+.footer-links ul,.footer-contact ul{list-style:none; margin:0; padding:0}
+.footer-links li{margin:12px 0}
+.footer-links a{color:rgba(255, 255, 255, 0.85); text-decoration:none; transition:color .15s}
+.footer-links a:hover{color:#fff}
+.footer-contact li{color:rgba(255,255,255,0.9); margin:10px 0}
+
+/* Ensure all links inside footer use light/white color instead of global link color */
+.site-footer a{color:rgba(255,255,255,0.92); text-decoration:none}
+.site-footer a:hover{color:#ffffff}
+
+.footer-divider{height:1px; background:rgba(255,255,255,0.06); margin:12px 0}
+.footer-bottom{padding:18px 0}
+.copyright{color:rgba(255,255,255,0.85); font-size:0.95rem; text-align:center; margin:0}
+
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr; gap:18px}
+  .footer-brand .footer-tag{max-width:none}
+  .footer-top{padding:36px 0}
+}
 
 /* Responsive tweaks */
 @media (max-width:720px){
