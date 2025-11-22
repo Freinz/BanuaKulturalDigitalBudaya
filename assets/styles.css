@@ -128,4 +128,23 @@ body{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
   .culture-card .thumb img{height:220px}
 }
 
+/* Edukasi UMKM (Section 4) */
+.edukasi-section{padding:64px 0; background:#fff}
+.edukasi-section .section-title.center{ text-align:center }
+.edukasi-section .section-lead.center{ text-align:center; margin-bottom:28px }
+.edukasi-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:28px}
+.edu-card{background:transparent; border-radius:14px; overflow:hidden; box-shadow:0 14px 36px rgba(20,18,15,0.06); display:flex; flex-direction:column}
+.edu-top{background:linear-gradient(180deg, rgba(246,236,232,0.95), rgba(253,246,240,0.95)); padding:28px; display:flex; align-items:center; justify-content:center}
+.edu-icon{color:var(--terracotta); width:64px; height:64px; display:flex; align-items:center; justify-content:center}
+.edu-body{background:#fff; padding:22px; display:flex; flex-direction:column; gap:12px}
+.edu-body h4{font-family:'Playfair Display', serif; font-weight:700; color:var(--title-brown); margin:0; font-size:1.125rem}
+.edu-body p{color:#6a6a6a; margin:0; line-height:1.6}
+.edu-btn{align-self:stretch; margin-top:6px; background:var(--terracotta); color:#fff; border:0; padding:12px; border-radius:10px; font-weight:700; cursor:pointer}
+.edu-card:hover{transform:translateY(-6px)}
+
+@media (max-width:900px){
+  .edukasi-grid{grid-template-columns:1fr}
+}
+
+
 
