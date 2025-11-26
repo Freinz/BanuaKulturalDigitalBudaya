@@ -432,70 +432,465 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ========================================
    Edukasi
-======================================== */
-.edukasi {
-  background: var(--white);
-}
+========
+    /* Section Edukasi UMKM */
+    .section {
+      padding: 80px 0;
+    }
 
-.edu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
-}
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
 
-.edu-card {
-  padding: 32px 24px;
-  background: var(--cream);
-  border-radius: var(--radius);
-  text-align: center;
-  transition: all var(--transition);
-}
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
 
-.edu-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-light);
+    }
 
-.edu-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--white);
-  border-radius: 50%;
-  color: var(--accent);
-}
+    .edukasi {
+      background: var(--white);
+    }
 
-.edu-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--primary-dark);
-  margin-bottom: 12px;
-}
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
 
-.edu-card p {
-  font-size: 0.9375rem;
-  color: var(--text-light);
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
+    .edu-card {
+      background: var(--white);
+      border: 2px solid var(--cream-dark);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+      cursor: pointer;
+      position: relative;
+    }
 
-.edu-btn {
-  padding: 12px 24px;
-  background: var(--accent);
-  color: var(--white);
-  font-size: 0.875rem;
-  font-weight: 600;
-  border-radius: 100px;
-  transition: all var(--transition);
-}
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
 
-.edu-btn:hover {
-  background: var(--primary);
-}
+    .edu-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .edu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .edu-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .edu-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .edu-card-content {
+      padding: 24px;
+    }
+
+    .edu-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(201, 109, 60, 0.1), rgba(139, 90, 43, 0.05));
+      border-radius: 50%;
+      color: var(--accent);
+    }
+
+    .edu-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      text-align: center;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .edu-btn {
+      width: 100%;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: var(--white);
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .edu-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 109, 60, 0.3);
+    }
+
+    .edu-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Modal Overlay Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(45, 42, 38, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .modal-content {
+      background: var(--white);
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      position: relative;
+      animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid var(--cream-dark);
+      border-radius: 50%;
+      color: var(--text);
+      cursor: pointer;
+      transition: all var(--transition);
+      z-index: 2001;
+    }
+
+    .modal-close:hover {
+      background: var(--accent);
+      color: var(--white);
+      transform: rotate(90deg);
+      border-color: var(--accent);
+    }
+
+    .modal-header {
+      padding: 48px 40px 32px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+      border-bottom: 2px solid var(--cream-dark);
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(201, 109, 60, 0.15), rgba(139, 90, 43, 0.08));
+      border-radius: 50%;
+      color: var(--accent);
+      border: 3px solid var(--cream-dark);
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .modal-badge {
+      display: inline-block;
+      padding: 8px 18px;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-body {
+      flex: 1;
+      padding: 36px 40px;
+      overflow-y: auto;
+    }
+
+    .modal-body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background: var(--cream);
+      border-radius: 5px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background: var(--cream-dark);
+      border-radius: 5px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    .modal-body img {
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .modal-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-top: 28px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-body h3::before {
+      content: '';
+      width: 5px;
+      height: 28px;
+      background: linear-gradient(180deg, var(--accent), var(--primary));
+      border-radius: 3px;
+    }
+
+    .modal-body h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .modal-body p {
+      color: var(--text-light);
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    .modal-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 24px;
+    }
+
+    .modal-list li {
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      font-size: 0.9375rem;
+      color: var(--text);
+      line-height: 1.7;
+      border-left: 4px solid var(--accent);
+      transition: all var(--transition);
+    }
+
+    .modal-list li:hover {
+      background: var(--cream-dark);
+      transform: translateX(4px);
+    }
+
+    .modal-list li strong {
+      color: var(--primary-dark);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .modal-footer {
+      padding: 24px 40px;
+      border-top: 2px solid var(--cream-dark);
+      background: var(--cream);
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .modal-btn {
+      padding: 14px 32px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-radius: 100px;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+    }
+
+    .modal-btn-secondary {
+      background: var(--white);
+      color: var(--text);
+      border: 2px solid var(--cream-dark);
+    }
+
+    .modal-btn-secondary:hover {
+      background: var(--cream-dark);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .modal-btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: var(--white);
+      flex: 1;
+      max-width: 240px;
+    }
+
+    .modal-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 109, 60, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .edu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+      }
+
+      .modal-content {
+        max-height: 95vh;
+        border-radius: 16px;
+      }
+
+      .modal-header {
+        padding: 40px 28px 24px;
+      }
+
+      .modal-close {
+        top: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .modal-title {
+        font-size: 1.375rem;
+      }
+
+      .modal-body {
+        padding: 28px 28px;
+      }
+
+      .modal-body h3 {
+        font-size: 1.125rem;
+        margin-top: 24px;
+      }
+
+      .modal-footer {
+        flex-direction: column-reverse;
+        gap: 10px;
+        padding: 20px 28px;
+      }
+
+      .modal-btn {
+        width: 100%;
+        max-width: none;
+      }
+
+      .modal-btn-primary {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-body img {
+        max-height: 220px;
+      }
+
+      .modal-list li {
+        font-size: 0.875rem;
+        padding: 14px 16px;
+      }
+    }
 
 /* ========================================
    Tentang
