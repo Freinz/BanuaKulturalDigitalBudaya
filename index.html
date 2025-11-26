@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="utf-8" />
@@ -649,6 +649,232 @@
         // Auto advance
         setInterval(() => goTo(current + 1), 6000);
       })();
+
+      // Modal Education Data & Controller
+      const eduModal = {
+        data: {
+          'pengantar-umkm': {
+            title: 'Pengantar Manajemen UMKM',
+            badge: 'Manajemen Usaha',
+            icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12M22 7a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v12"></path></svg>',
+            description: `
+              <h3>Tujuan Pembelajaran</h3>
+              <p>Memahami fondasi dasar pengelolaan usaha mikro, kecil, dan menengah (UMKM) secara profesional dan berkelanjutan di era digital modern.</p>
+              
+              <h3>Topik Pembahasan</h3>
+              <ul class="modal-list">
+                <li><strong>Konsep & Definisi UMKM:</strong> Memahami apa itu UMKM, klasifikasi, dan perannya dalam perekonomian nasional.</li>
+                <li><strong>Perencanaan Bisnis:</strong> Langkah-langkah membuat business plan yang solid dan terukur.</li>
+                <li><strong>Manajemen Sumber Daya:</strong> Pengelolaan SDM, modal, dan aset bisnis dengan efisien.</li>
+                <li><strong>Strategi Pertumbuhan:</strong> Cara-cara untuk mengembangkan UMKM dari skala kecil menjadi menengah.</li>
+                <li><strong>Tantangan & Solusi:</strong> Mengidentifikasi masalah bisnis dan cara mengatasinya.</li>
+              </ul>
+              
+              <h3>Manfaat</h3>
+              <p>Anda akan memiliki fondasi kuat untuk menjalankan UMKM dengan manajemen yang baik, meningkatkan efisiensi operasional, dan mencapai pertumbuhan yang berkelanjutan.</p>
+            `
+          },
+          'pengelolaan-keuangan': {
+            title: 'Pengelolaan Keuangan',
+            badge: 'Keuangan Bisnis',
+            icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>',
+            description: `
+              <h3>Tujuan Pembelajaran</h3>
+              <p>Menguasai teknik pengelolaan keuangan bisnis dengan cara praktis, mulai dari pencatatan hingga analisis laporan keuangan sederhana.</p>
+              
+              <h3>Materi Utama</h3>
+              <ul class="modal-list">
+                <li><strong>Pencatatan Transaksi:</strong> Cara mencatat pengeluaran dan pemasukan harian bisnis Anda.</li>
+                <li><strong>Pembukuan Sederhana:</strong> Membuat laporan keuangan dasar seperti buku kas dan neraca sederhana.</li>
+                <li><strong>Manajemen Arus Kas:</strong> Mengelola cash flow untuk memastikan likuiditas bisnis tetap sehat.</li>
+                <li><strong>Analisis Laba Rugi:</strong> Memahami keuntungan dan kerugian bisnis per periode.</li>
+                <li><strong>Perencanaan Budget:</strong> Membuat anggaran bulanan yang realistis dan terukur.</li>
+                <li><strong>Penggunaan Tools Digital:</strong> Pengenalan aplikasi pembukuan sederhana dan gratis.</li>
+              </ul>
+              
+              <h3>Hasil yang Diharapkan</h3>
+              <p>Anda mampu mencatat dan menganalisis keuangan bisnis sendiri, membuat keputusan berbasis data finansial, dan meningkatkan profitabilitas usaha.</p>
+            `
+          },
+          'pemasaran-digital': {
+            title: 'Pemasaran Digital',
+            badge: 'Strategi Pemasaran',
+            icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>',
+            description: `
+              <h3>Tujuan Pembelajaran</h3>
+              <p>Memahami dan menerapkan strategi pemasaran digital untuk memperluas jangkauan pasar produk/layanan UMKM Anda melalui platform online.</p>
+              
+              <h3>Platform & Strategi</h3>
+              <ul class="modal-list">
+                <li><strong>Media Sosial Marketing:</strong> Memanfaatkan Instagram, Facebook, TikTok untuk promosi produk.</li>
+                <li><strong>Konten Marketing:</strong> Membuat konten menarik, berkualitas, dan engaging untuk audience.</li>
+                <li><strong>E-Commerce Optimization:</strong> Menjual melalui marketplace seperti Tokopedia, Shopee, Lazada dengan strategi tepat.</li>
+                <li><strong>Email & WhatsApp Marketing:</strong> Komunikasi langsung dengan pelanggan untuk meningkatkan loyalitas.</li>
+                <li><strong>Paid Advertising:</strong> Menggunakan iklan berbayar (ads) secara efisien dengan budget terbatas.</li>
+                <li><strong>Analytics & Metrics:</strong> Mengukur performa kampanye digital dan ROI.</li>
+              </ul>
+              
+              <h3>Manfaat Praktis</h3>
+              <p>Jangkauan pasar meningkat, biaya promosi lebih efisien, dan Anda dapat berinteraksi langsung dengan pelanggan potensial.</p>
+            `
+          },
+          'desain-produk': {
+            title: 'Desain Produk & Kemasan',
+            badge: 'Design & Branding',
+            icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2" ry="2"></rect><path d="M16 3v4M8 3v4"></path></svg>',
+            description: `
+              <h3>Tujuan Pembelajaran</h3>
+              <p>Belajar merancang produk dan kemasan yang tidak hanya menarik secara visual, tetapi juga fungsional, sesuai regulasi, dan meningkatkan nilai jual.</p>
+              
+              <h3>Topik Pembelajaran</h3>
+              <ul class="modal-list">
+                <li><strong>Prinsip Desain Produk:</strong> Estetika, fungsionalitas, dan keberlanjutan dalam desain.</li>
+                <li><strong>Desain Kemasan:</strong> Menciptakan kemasan yang eye-catching dan melindungi produk.</li>
+                <li><strong>Branding Visual:</strong> Membangun identitas visual produk yang konsisten dan memorable.</li>
+                <li><strong>Regulasi Label:</strong> Persyaratan label, informasi nutrisi, dan keamanan produk sesuai standar pemerintah.</li>
+                <li><strong>Material & Sustainability:</strong> Memilih material ramah lingkungan tanpa mengorbankan kualitas.</li>
+                <li><strong>Tools & Software:</strong> Pengenalan tools desain gratis seperti Canva, Figma untuk non-designer.</li>
+              </ul>
+              
+              <h3>Output Nyata</h3>
+              <p>Produk Anda memiliki packaging profesional, label yang compliance, dan visual branding yang kuat untuk meningkatkan daya tarik di pasaran.</p>
+            `
+          },
+          'manajemen-produksi': {
+            title: 'Manajemen Produksi & Kualitas',
+            badge: 'Operasional Produksi',
+            icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M5 7v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7"></path><path d="M8 11h8M8 15h8"></path></svg>',
+            description: `
+              <h3>Tujuan Pembelajaran</h3>
+              <p>Mengelola proses produksi dengan efisien, menjaga konsistensi kualitas produk, dan mengoptimalkan biaya untuk meningkatkan margin keuntungan.</p>
+              
+              <h3>Materi Pokok</h3>
+              <ul class="modal-list">
+                <li><strong>Perencanaan Produksi:</strong> Forecasting demand, penjadwalan produksi, dan manajemen inventory.</li>
+                <li><strong>Quality Control:</strong> Standar kualitas produk, inspeksi, dan cara menangani produk cacat.</li>
+                <li><strong>Efisiensi Operasional:</strong> Optimasi proses produksi untuk mengurangi waste dan meningkatkan output.</li>
+                <li><strong>Manajemen Bahan Baku:</strong> Pembelian, penyimpanan, dan penggunaan bahan baku dengan bijak.</li>
+                <li><strong>Keselamatan Kerja:</strong> Standar K3 di tempat produksi untuk melindungi karyawan.</li>
+                <li><strong>Dokumentasi & Traceability:</strong> Pencatatan proses produksi untuk akuntabilitas dan compliance.</li>
+              </ul>
+              
+              <h3>Hasil yang Dicapai</h3>
+              <p>Produksi lebih efisien, biaya lebih rendah, produk lebih konsisten, dan kepuasan pelanggan meningkat karena kualitas terjaga.</p>
+            `
+          },
+          'legalitas-perizinan': {
+            title: 'Legalitas & Perizinan',
+            badge: 'Legal & Compliance',
+            icon: '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg>',
+            description: `
+              <h3>Tujuan Pembelajaran</h3>
+              <p>Memahami dan menguruskan semua aspek legalitas dan perizinan UMKM sesuai regulasi pemerintah Indonesia untuk operasional yang aman dan terpercaya.</p>
+              
+              <h3>Aspek Legalitas</h3>
+              <ul class="modal-list">
+                <li><strong>Izin Usaha:</strong> Proses mendapatkan surat izin usaha mikro (SIUM), izin HO, dan izin gangguan.</li>
+                <li><strong>NPWP & Pajak:</strong> Cara mendaftar NPWP pribadi/badan usaha dan kewajiban perpajakan.</li>
+                <li><strong>Sertifikasi Produk:</strong> Izin BPOM, SNI, dan sertifikasi lainnya sesuai jenis produk.</li>
+                <li><strong>Izin Lingkungan:</strong> AMDAL dan izin lingkungan untuk usaha yang berpotensi dampak lingkungan.</li>
+                <li><strong>Kemitraan & Kontrak:</strong> Aspek legal dalam kemitraan bisnis dan kesepakatan kontrak.</li>
+                <li><strong>Perlindungan Hak Kekayaan Intelektual:</strong> Mendaftarkan merek, hak cipta, dan paten untuk produk inovatif.</li>
+              </ul>
+              
+              <h3>Manfaat Compliance</h3>
+              <p>UMKM Anda beroperasi secara legal, menghindari masalah hukum, meningkatkan kredibilitas di mata pelanggan dan mitra bisnis, serta aksesibilitas terhadap pembiayaan formal.</p>
+            `
+          }
+        },
+        init: function() {
+          const modal = document.getElementById('eduModal');
+          const closeBtn = document.querySelector('.modal-close');
+          const backBtn = document.getElementById('modalBtnBack');
+          const nextBtn = document.getElementById('modalBtnNext');
+          const overlay = modal;
+          
+          closeBtn.addEventListener('click', () => this.close());
+          backBtn.addEventListener('click', () => this.close());
+          nextBtn.addEventListener('click', () => this.close());
+          
+          overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) this.close();
+          });
+          
+          document.querySelectorAll('.edu-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              const card = e.target.closest('.edu-card');
+              const title = card.querySelector('h4').textContent;
+              this.openByTitle(title);
+            });
+          });
+        },
+        openByTitle: function(title) {
+          const key = this.getTitleKey(title);
+          if (this.data[key]) {
+            this.open(key);
+          }
+        },
+        getTitleKey: function(title) {
+          const mapping = {
+            'Pengantar Manajemen UMKM': 'pengantar-umkm',
+            'Pengelolaan Keuangan': 'pengelolaan-keuangan',
+            'Pemasaran Digital': 'pemasaran-digital',
+            'Desain Produk & Kemasan': 'desain-produk',
+            'Manajemen Produksi & Kualitas': 'manajemen-produksi',
+            'Legalitas & Perizinan': 'legalitas-perizinan'
+          };
+          return mapping[title] || '';
+        },
+        open: function(key) {
+          const data = this.data[key];
+          if (!data) return;
+          
+          document.getElementById('modalTitle').textContent = data.title;
+          document.getElementById('modalBadge').textContent = data.badge;
+          document.getElementById('modalIcon').innerHTML = data.icon;
+          document.getElementById('modalDesc').innerHTML = data.description;
+          
+          const modal = document.getElementById('eduModal');
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        },
+        close: function() {
+          const modal = document.getElementById('eduModal');
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        eduModal.init();
+      });
     </script>
+
+    <!-- Modal Overlay untuk Edukasi -->
+    <div id="eduModal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Tutup modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        
+        <div class="modal-header">
+          <div class="modal-icon" id="modalIcon"></div>
+          <h2 id="modalTitle" class="modal-title">Judul Materi</h2>
+          <span id="modalBadge" class="modal-badge">Edukasi</span>
+        </div>
+        
+        <div class="modal-body" id="modalBody">
+          <p id="modalDesc">Deskripsi materi akan ditampilkan di sini...</p>
+        </div>
+        
+        <div class="modal-footer">
+          <button class="modal-btn modal-btn-secondary" id="modalBtnBack">Kembali</button>
+          <button class="modal-btn modal-btn-primary" id="modalBtnNext">Lanjut Belajar</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
