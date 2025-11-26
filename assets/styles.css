@@ -992,7 +992,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--primary-dark);
   line-height: 1.7;
 }
-
 /* ========================================
    Social Connect
 ======================================== */
@@ -1063,15 +1062,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: 0 8px 16px rgba(10, 102, 194, 0.3);
 }
 
-.social-btn.gmail {
-  background: linear-gradient(135deg, #EA4335 0%, #C5221F 100%);
+/* Styling untuk tombol Threads */
+.social-btn.threads {
+  background: #000000;
   color: var(--white);
-  border-color: #C5221F;
+  border-color: #000000;
 }
 
-.social-btn.gmail:hover {
+.social-btn.threads:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(202, 55, 55, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  background: #1a1a1a;
+  border-color: #1a1a1a;
 }
 
 /* Responsive: Social buttons stacked pada mobile */
@@ -1118,7 +1120,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     justify-content: flex-start;
   }
 }
-
 /* ========================================
    Modal Overlay
 ======================================== */
